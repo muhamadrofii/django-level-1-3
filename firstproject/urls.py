@@ -19,9 +19,6 @@ from django.urls import path
 from django1 import views as django1_views
 from django3 import views as django3_views
 
-# urls.py
-# from django.urls import path
-# from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
