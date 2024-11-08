@@ -1,24 +1,64 @@
-<!-- subscribe.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Subscribe</title>
-    <!-- Link ke Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet"> <!-- Add Bootstrap Icons -->
+    <style>
+        .alert {
+            display: none;
+        }
+        
+        /* Style the back button */
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            border-radius: 50%;
+            padding: 10px 15px;
+            font-size: 18px;
+            z-index: 1000;
+        }
+    </style>
 </head>
 <body>
+    {% load static %}
+
+    <a href="{% url 'index' %}" class="btn btn-secondary back-button">
+        <i class="bi bi-arrow-left"></i>
+    </a>
     <div class="container mt-5">
-        <h2>Subscribe Form</h2>
-        <form method="post">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
+        <!-- Display messages here -->
+        {% if messages %}
+            <div class="alert alert-success" role="alert" id="successMessage">
+                {% for message in messages %}
+                    <p>{{ message }}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
+        
+        <div class="row justify-content-center">
+            <div class="col-md-6 col-lg-4">
+                <div class="card p-4 shadow-sm">
+                    <h2 class="text-center mb-4">Subscribe to Our Newsletter</h2>
+                    
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            {{ form.as_p }}
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary w-100">Subscribe Now</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
-    
-    <!-- Link ke Bootstrap JS (optional) -->
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{% static 'js/subscribe.js' %}"></script>
 </body>
 </html>

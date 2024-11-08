@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Welcome to Our Website</h1>
+            <p>We're glad to have you here!</p>
+        </header>
+        
+        <main>
+            <p class="intro">Hello, World! This is a simple and stylish page to get you started with Django.</p>
+            <a href="{% url 'subscribe' %}" class="button">Subscribe Form</a>
+            <a href="{% url 'admin:index' %}" class="button">Login Admin</a>
+        </main>
+        
+        <footer>
+            <p>&copy; 2024 Your Company. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

@@ -16,7 +16,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from django3 import views
+from django1 import views as django1_views
+from django3 import views as django3_views
 
 # urls.py
 # from django.urls import path
@@ -24,5 +25,7 @@ from django3 import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('subscribe/', views.subscribe_view, name='subscribe'),
+    path('subscribe/', django3_views.subscribe_view, name='subscribe'),  # View dari django3
+    path('', django1_views.index, name='index'),  # View dari django1
 ]
+
