@@ -23,6 +23,7 @@ from django3 import views as django3_views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('subscribe/', django3_views.subscribe_view, name='subscribe'),  # View dari django3
+    path('customers/', django3_views.customer_list, name='customer_list'), # View dari django3
     path('', django1_views.index, name='index'),  # View dari django1
 ]
 

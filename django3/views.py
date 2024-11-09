@@ -21,3 +21,9 @@ def subscribe_view(request):
         form = SubscribeForm()
 
     return render(request, 'subscribe.html', {'form': form})
+
+
+def customer_list(request):
+    customers = Customer.objects.all()
+    return render(request, 'customer_list.html', {'customers': customers})
+
